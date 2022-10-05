@@ -13,9 +13,15 @@ fun discountCalc(amount: Int, buyerStatus: Boolean): Double {
         rez = amount.toDouble() - 100;
     }
     else if(amount > 10001){
-        rez = amount.toDouble() - amount * 0.05;
+        if(amount * 0.05 > 35){
+            rez = amount.toDouble() - amount * 0.05;
+        }
+        else{
+            rez = amount.toDouble() - 35;
+        }
+
     }
-    if(buyerStatus){
+    if(buyerStatus && rez > 0){
         rez = rez - rez * 0.01;
     }
     return rez;
