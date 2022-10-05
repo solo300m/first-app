@@ -15,8 +15,9 @@ fun discountCalc(amount: Int, buyerStatus: Boolean): Double {
     else if(amount > 10001){
         rez = amount.toDouble() - amount * 0.05;
     }
-    if(buyerStatus){
-        rez = rez - rez * 0.01;
+    if(buyerStatus && amount > 0){
+        val rezOld:Double = rez;
+        return rezOld - rez * 0.01;
     }
     return rez;
 }
